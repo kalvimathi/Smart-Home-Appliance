@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Home Appliance Control System</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+    <header>
+        <h1>Smart Home Appliance Control System</h1>
+        <div class="header-links">
+            <a href="C:\Users\kalvimathi\Desktop\HTML tutorial\smarthome home pahe.html">Home</a>
+            <a href="C:\Users\kalvimathi\Desktop\HTML tutorial\smart home about us page.html">About Us</a>
+            <a href="C:\Users\kalvimathi\Desktop\HTML tutorial\index.html">Login</a>
+        </div>
+    </header>
+
+    <!-- Login Page -->
+    <div class="container" id="loginPage">
+        <h2>Login</h2>
+        <form action="/login" method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <div class="link">
+            <p>Don't have an account? <a href="#" onclick="showRegistrationPage()">Register here</a></p>
+        </div>
+    </div>
+
+    <!-- Registration Page -->
+    <div class="container" id="registrationPage" style="display: none;">
+        <h2>Registration</h2>
+        <form action="/register" method="POST">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Register</button>
+        </form>
+        <div class="link">
+            <p>Already have an account? <a href="#" onclick="showLoginPage()">Login here</a></p>
+        </div>
+    </div>
+
+    <!-- Appliance Control Page -->
+    <div class="container" id="controlPage" style="display: none;">
+        <h2>Control Your Appliances</h2>
+        <div>
+            <button onclick="toggleAppliance('light')">Toggle Lights</button>
+            <button onclick="toggleAppliance('fan')">Toggle Fan</button>
+            <button onclick="toggleAppliance('ac')">Toggle AC</button>
+        </div>
+    </div>
+
+    <script>
+        function showLoginPage() {
+            document.getElementById('loginPage').style.display = 'block';
+            document.getElementById('registrationPage').style.display = 'none';
+            document.getElementById('controlPage').style.display = 'none';
+        }
+
+        function showRegistrationPage() {
+            document.getElementById('registrationPage').style.display = 'block';
+            document.getElementById('loginPage').style.display = 'none';
+            document.getElementById('controlPage').style.display = 'none';
+        }
+
+        function showControlPage() {
+            document.getElementById('controlPage').style.display = 'block';
+            document.getElementById('loginPage').style.display = 'none';
+            document.getElementById('registrationPage').style.display = 'none';
+        }
+
+        function toggleAppliance(appliance) {
+            alert(`${appliance.charAt(0).toUpperCase() + appliance.slice(1)} toggled!`);
+        }
+
+        // Default to showing login page
+        showLoginPage();
+    </script>
+</body>
+</html>
